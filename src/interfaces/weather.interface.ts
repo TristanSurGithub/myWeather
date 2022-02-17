@@ -1,6 +1,6 @@
 export interface CurrentWeather {
     city: string,
-    weather?: Weather, 
+    weather: Weather,
     temperature: number,
     hourForecast?: Array<HourForecast>
     dailyForecast?: Array<DailyForecast>
@@ -9,7 +9,7 @@ export interface CurrentWeather {
 export interface HourForecast {
     hour: string,
     temperature: number,
-    weather: string
+    weather: Weather
 }
 
 export interface DailyForecast {
