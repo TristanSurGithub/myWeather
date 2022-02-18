@@ -9,11 +9,10 @@ export default {
         const weather: CurrentWeather = weatherFactory.formatRawWeatherToWeather(rawCurrentWeather);
         return weather;
     },
-
+    
     async getWeatherForecast(coordinates: Coordinates): Promise<Array<HourForecast>> {
         const rawWeatherForecast: Awaited<Readonly<any>> = await weatherRepository.getWeatherForecast(coordinates);
         const forecast: Array<HourForecast> = weatherFactory.formatRawForecastToHourForecast(rawWeatherForecast);
         return forecast;
     }
-
 }

@@ -1,9 +1,9 @@
 <template>
-  <div id="current-weather-container">
+  <div id="container">
     <ion-card>
       <ion-card-header>
         <ion-card-subtitle>{{ weather.city }}</ion-card-subtitle>
-        <ion-card-title>{{ temperatureWithoutDecimals }}°C</ion-card-title>
+        <ion-card-title>{{ temperatureWithoutDecimals }}</ion-card-title>
       </ion-card-header>
       <ion-card-content class="custom-weather-card">
         <img
@@ -23,7 +23,7 @@ export default {
   props: {
     weather: Object,
   },
-   computed: {
+  computed: {
     temperatureWithoutDecimals() {
       return this.weather.temperature.toFixed(0);
     },
@@ -32,15 +32,6 @@ export default {
 </script>
 
 <style scoped>
-#container {
-  text-align: center;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 24%;
-  transform: translateY(-50%);
-}
-
 #container strong {
   font-size: 20px;
   line-height: 26px;

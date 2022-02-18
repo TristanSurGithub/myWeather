@@ -1,5 +1,5 @@
 import { CurrentWeather, HourForecast } from "@/interfaces/weather.interface"
-import forecastHelper from '../helpers/forecast.helper'
+import weatherHelper from '../helpers/weather.helper';
 
 export default {
     formatRawWeatherToWeather(rawWeather: Readonly<any>): CurrentWeather {
@@ -16,14 +16,14 @@ export default {
     },
     formatRawForecastToHourForecast(rawForecast: Readonly<any>): Array<HourForecast> {
         const hourForecast: Array<HourForecast> = rawForecast.hourly.map((hourlyForecast: Readonly<any>) => ({
-            hour: forecastHelper.formatToDate(hourlyForecast.dt),
-            temperature: hourlyForecast.temp,
+            hour: `${weatherHelper.convertUnixTimestampToHours(hourlyForecast.dt)}H`,
+            temperature: `${Math.round(hourlyForecast.temp)}°`,
             weather: {
                 name: hourlyForecast.weather[0].name,
                 description: hourlyForecast.weather[0].description,
                 icon: hourlyForecast.weather[0].icon
             }
         }))
-        return hourForecast;
-    },
+        return hourForecast.slice(0, 24);
+    }
 }

@@ -9,7 +9,8 @@ export default {
                 }&units=metric&lang=fr_fr`)
             const rawWeatherData = await httpRequest.json();
             return rawWeatherData
-        } catch (httpException: any) {
+        }
+        catch (httpException: any) {
             return httpException
         }
     },
@@ -20,7 +21,8 @@ export default {
                 }&units=metric&lang=fr_fr`)
             const rawWeatherForecast = await httpRequest.json();
             return rawWeatherForecast;
-        } catch (httpException: any) {
+        }
+        catch (httpException: any) {
             return httpException
         }
     }
