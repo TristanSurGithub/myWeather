@@ -1,12 +1,18 @@
 <template>
   <div id="container">
-    <ion-card>
+    <ion-card id="weather-list-forecast-card">
       <ion-card-header>
-        <ion-card-subtitle>Prévisions sur 24H</ion-card-subtitle>
+        <ion-card-subtitle class="subtitle"
+          >Prévisions sur 24H</ion-card-subtitle
+        >
       </ion-card-header>
-      <ion-card-content class="custom-weather-card">
-        <ion-list v-for="(forecast, index) in forecasts" :key="index">
-          <ion-item>
+      <ion-card-content id="content-weather-card">
+        <ion-list
+          class="item-list"
+          v-for="(forecast, index) in forecasts"
+          :key="index"
+        >
+          <ion-item class="item">
             <ion-avatar slot="start">
               <img
                 :src="`http://openweathermap.org/img/wn/${forecast.weather.icon}.png`"
@@ -34,4 +40,19 @@ export default {
 </script>
 
 <style scoped>
+#weather-list-forecast-card {
+  background: #4391f7;
+}
+
+#weather-list-forecast-card .subtitle {
+  color: #ffffff;
+  font-size: 18px;
+  text-align: center;
+}
+
+#content-weather-card .item-list {
+  color: #ffffff;
+  border-radius: 10px;
+  margin-bottom: 8px;
+}
 </style>
