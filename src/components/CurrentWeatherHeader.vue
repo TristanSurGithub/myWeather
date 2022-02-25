@@ -1,11 +1,15 @@
 <template>
   <div id="container">
-    <ion-card>
+    <ion-card id="header-weather-card">
       <ion-card-header>
-        <ion-card-subtitle>{{ weather.city }}</ion-card-subtitle>
-        <ion-card-title>{{ temperatureWithoutDecimals }}</ion-card-title>
+        <ion-card-subtitle class="subtitle">{{
+          weather.city
+        }}</ion-card-subtitle>
+        <ion-card-title class="title"
+          >{{ temperatureWithoutDecimals }}°</ion-card-title
+        >
       </ion-card-header>
-      <ion-card-content class="custom-weather-card">
+      <ion-card-content id="content-weather-card">
         <img
           width="100"
           height="100"
@@ -32,25 +36,31 @@ export default {
 </script>
 
 <style scoped>
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-  color: #8c8c8c;
-  margin: 0;
-}
-
 #container a {
   text-decoration: none;
 }
-.custom-weather-card {
+
+#container #header-weather-card {
   display: flex;
-  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+  background: #4391f7;
+}
+
+#header-weather-card .title,
+#header-weather-card .subtitle {
+  color: #ffffff;
+}
+
+#content-weather-card {
+  display: flex;
   flex-direction: column;
   align-items: center;
+  color: #ffffff;
+}
+
+#content-weather-card img {
+  width: 50px;
+  height: auto;
 }
 </style>
