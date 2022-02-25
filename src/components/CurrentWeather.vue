@@ -7,7 +7,7 @@
 </template>
 
 <script lang="ts">
-import { loadingController, toastController } from "@ionic/vue";
+import { loadingController } from "@ionic/vue";
 import CurrentWeatherHeader from "@/components/CurrentWeatherHeader.vue";
 import CurrentWeatherListForecast from "@/components/CurrentWeatherListForecast.vue";
 import WeatherService from "@/services/weather.service";

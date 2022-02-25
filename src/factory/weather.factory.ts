@@ -16,7 +16,7 @@ export default {
     },
     formatRawForecastToHourForecast(rawForecast: Readonly<any>): Array<HourForecast> {
         const hourForecast: Array<HourForecast> = rawForecast.hourly.map((hourlyForecast: Readonly<any>) => ({
-            hour: `${weatherHelper.convertUnixTimestampToHours(hourlyForecast.dt)}H`,
+            hour: `${weatherHelper.convertUnixTimestampToHours(hourlyForecast.dt)}h`,
             temperature: `${Math.round(hourlyForecast.temp)}°`,
             weather: {
                 name: hourlyForecast.weather[0].name,
