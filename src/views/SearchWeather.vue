@@ -12,12 +12,14 @@
         </ion-toolbar>
       </ion-header>
       <ion-input v-model="city" clear-input value=""></ion-input>
-      <ion-button @click="searchWeather()" expand="block"
-        >Rechercher</ion-button
-      >
-      <ion-button @click="addToFavorites()" expand="block"
-        >Ajouter en favoris</ion-button
-      >
+      <div class="button-container">
+        <ion-button class="button" @click="searchWeather()" expand="block"
+          >Rechercher</ion-button
+        >
+        <ion-button class="button" @click="addToFavorites()" expand="block"
+          >Ajouter en favoris</ion-button
+        >
+      </div>
       <current-weather
         v-if="coordinates"
         :latitude="coordinates.latitude"
@@ -61,7 +63,7 @@ export default {
   async mounted() {
     if (this.$route.query.city) {
       this.city = this.$route.query.city;
-      await this.searchWeather(); 
+      await this.searchWeather();
     }
   },
   computed: {
@@ -69,7 +71,7 @@ export default {
   },
   methods: {
     ...mapActions(cityStore, ["addNewCity"]),
-    
+
     async searchWeather(): Promise<void> {
       this.coordinates = null;
       const coordinates = await coordinatesService.getCoordinatesByCityName(
@@ -90,3 +92,13 @@ export default {
   },
 };
 </script>
+
+<style>
+.button-container {
+  display: flex;
+}
+
+.button-container .button {
+  flex: 1;
+}
+</style>
